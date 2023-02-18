@@ -13976,12 +13976,9 @@ a.anchor-link {
 <li><a href="#probability">Part I - Probability</a></li>
 <li><a href="#ab_test">Part II - A/B Test</a></li>
 <li><a href="#regression">Part III - Regression</a></li>
-<li><a href="#finalcheck">Final Check</a></li>
-<li><a href="#submission">Submission</a>
-<a id='intro'></a>
-## Introduction</li>
 </ul>
-<p>A/B tests are very commonly performed by data analysts and data scientists. For this project, we will be working to understand the results of an A/B test run by an e-commerce website or a company.As a data analyst, my goal for this project is to help the company decide if they should:</p>
+<p><a id='intro'></a></p>
+<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><p>A/B tests are very commonly performed by data analysts and data scientists. For this project, we will be working to understand the results of an A/B test run by an e-commerce website or a company.As a data analyst, my goal for this project is to help the company decide if they should:</p>
 <ul>
 <li>Implement the new webpage, </li>
 <li>Keep the old webpage, or </li>
@@ -15472,7 +15469,7 @@ Store all  $(p{'}_{new}$ - $p{'}_{old})$  values in a NumPy array called <code>p
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[57]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
@@ -15480,19 +15477,6 @@ Store all  $(p{'}_{new}$ - $p{'}_{old})$  values in a NumPy array called <code>p
 <span class="n">convert_new</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;group == &#39;treatment&#39;&quot;</span><span class="p">)[</span><span class="s1">&#39;converted&#39;</span><span class="p">])</span>
 <span class="n">n_old</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;group == &#39;control&#39;&quot;</span><span class="p">))</span>
 <span class="n">n_new</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;group == &#39;treatment&#39;&quot;</span><span class="p">))</span>
-
-
-
-
-
-
-<span class="c1">#import statsmodels.api as sm</span>
-
-<span class="c1">#convert_old = df2.query(&#39;landing_page == &quot;old_page&quot; &amp; converted == &quot;1&quot;&#39;).count()[0]</span>
-<span class="c1">#convert_new = df2.query(&#39;landing_page == &quot;new_page&quot; &amp; converted == &quot;1&quot;&#39;).count()[0]</span>
-<span class="c1">#n_old = df2.landing_page.value_counts()[1]</span>
-<span class="c1">#n_new = df2.landing_page.value_counts()[0]</span>
-<span class="c1">#convert_old, convert_new, n_old, n_new</span>
 </pre></div>
 
      </div>
@@ -15500,18 +15484,42 @@ Store all  $(p{'}_{new}$ - $p{'}_{old})$  values in a NumPy array called <code>p
 </div>
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[56]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">z_score</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">proportions_ztest</span><span class="p">([</span><span class="n">convert_old</span><span class="p">,</span> <span class="n">convert_new</span><span class="p">],</span> <span class="p">[</span><span class="n">n_old</span><span class="p">,</span> <span class="n">n_new</span><span class="p">],</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;smaller&#39;</span><span class="p">)</span>
+<span class="n">z_score</span><span class="p">,</span><span class="n">p_value</span>
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[56]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>(1.3109241984234394, 0.9050583127590245)</pre>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
